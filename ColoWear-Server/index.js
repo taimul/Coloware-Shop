@@ -9,8 +9,15 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
+const products = require("./Data/products.json");
+
 app.get("/", (req, res) => {
   res.send("COLO WEAR server is running");
+});
+
+//get all products
+app.get("/products", (req, res) => {
+  res.send(products);
 });
 
 app.listen(port, () => {
