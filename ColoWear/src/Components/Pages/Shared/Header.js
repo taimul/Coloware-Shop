@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { BiCart, BiMenu } from "react-icons/bi";
 import { GrFormClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { CartState } from "../../../Context/Context";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -26,6 +27,9 @@ const Header = () => {
   }
 
   window.addEventListener("scroll", handleScroll);
+  const {
+    state: { cart },
+  } = CartState();
   return (
     <header
       className={`bg-gray-100 md:flex md:justify-between p-8 w-full z-40 sticky md:top-0 ${
@@ -126,7 +130,7 @@ const Header = () => {
             >
               <BiCart className="text-xl" />
             </button>
-            <p>(10)</p>
+            <p>({cart.length})</p>
           </div>
         </ul>
       </div>
