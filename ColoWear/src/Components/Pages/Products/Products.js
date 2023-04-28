@@ -7,22 +7,52 @@ import Filter from "./Filter";
 const Products = () => {
   const {
     state: { products },
+    productState: { sort, byStock, byFastDelivery, byRating, searchQuery },
   } = CartState();
-  //   if (products.length === 0) {
-  //     return <div>Loading...</div>;
-  //   }
+
+  const transformProducts = () => {
+    let sortedProducts = products;
+
+    if (sort) {
+      sortedProducts = sortedProducts.sort((a, b) =>
+        sort === "lowToHigh" ? a.price - b.price : b.price - a.price
+      );
+    }
+
+    if (!byStock) {
+      sortedProducts = sortedProducts.filter((prod) => prod.inStock);
+    }
+
+    if (byFastDelivery) {
+      sortedProducts = sortedProducts.filter((prod) => prod.fastDelivery);
+    }
+
+    if (byRating) {
+      sortedProducts = sortedProducts.filter(
+        (prod) => prod.ratings >= byRating
+      );
+    }
+
+    if (searchQuery) {
+      sortedProducts = sortedProducts.filter((prod) =>
+        prod.name.toLowerCase().includes(searchQuery)
+      );
+    }
+
+    return sortedProducts;
+  };
 
   return (
     <div className="container mx-auto">
       <div className="md:flex gap-6 grid">
-        <div className="md:w-2/6 lg:w-1/6 ">
+        <div className="md:w-2/6 lg:w-3/12 ">
           <SideNav />
         </div>
 
-        <div className="md:w-3/4 ">
+        <div className="w-full">
           <Filter />
-          <div className="mt-6">
-            {products.map((prod) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 mt-6 gap-4">
+            {transformProducts().map((prod) => (
               <SingleProduct prod={prod} key={prod.id} />
             ))}
           </div>

@@ -5,7 +5,7 @@ import React, {
   useReducer,
   useState,
 } from "react";
-import { cartReducer } from "./Reducers";
+import { cartReducer, productReducer } from "./Reducers";
 const Cart = createContext();
 
 const Context = ({ children }) => {
@@ -25,8 +25,18 @@ const Context = ({ children }) => {
     products: products,
     cart: [],
   });
+  const [productState, productDispatch] = useReducer(productReducer, {
+    byStock: false,
+    byFastDelivery: false,
+    byRating: 0,
+    searchQuery: "",
+  });
   //   console.log(state.length);
-  return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
+  return (
+    <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
+      {children}
+    </Cart.Provider>
+  );
 };
 
 export default Context;

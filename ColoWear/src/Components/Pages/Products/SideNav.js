@@ -2,7 +2,7 @@ import React from "react";
 
 const SideNav = () => {
   return (
-    <div className="md:p-10 p-5  border flex justify-evenly md:grid gap-4">
+    <div className="md:p-10 p-5 border flex justify-evenly md:grid gap-4 bg-gray-50">
       <div>
         <h2 className="border-b">Categories</h2>
         <ul>
