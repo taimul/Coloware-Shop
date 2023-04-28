@@ -1,6 +1,7 @@
 import React from "react";
 import { CartState } from "../../../Context/Context";
 import Rating from "./Rating";
+import HoverEffect from "./HoverEffect";
 
 const SingleProduct = ({ prod }) => {
   const {
@@ -11,11 +12,7 @@ const SingleProduct = ({ prod }) => {
   return (
     <div>
       <div className="card">
-        <img
-          className="w-full h-48 object-cover p-2 rounded-xl"
-          src={prod.image1}
-          alt=""
-        />
+        <HoverEffect src1={prod.image1} src2={prod.image2} />
         <div className="p-5 flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <span className="badge">Total Stock: {prod.inStock}</span>
@@ -62,7 +59,7 @@ const SingleProduct = ({ prod }) => {
                   });
                 }}
                 disabled={!prod.inStock}
-                className="btn-primary"
+                className={`btn-primary ${!prod.inStock && "opacity-50"}`}
               >
                 {!prod.inStock ? "Out Of Stock" : "Add To Cart"}
               </button>

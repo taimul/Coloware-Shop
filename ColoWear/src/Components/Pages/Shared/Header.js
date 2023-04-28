@@ -38,17 +38,19 @@ const Header = () => {
         isScrolled ? "delay-150 duration-300" : "bg-transparent text-black"
       }`}
     >
-      <button className="btn btn-ghost lg:text-4xl uppercase text-2xl">
-        COLO
-        <span className="font-bold text-red-600 ">Wear</span>
-      </button>
+      <Link to="/">
+        <button className="btn btn-ghost lg:text-4xl uppercase text-2xl">
+          COLO
+          <span className="font-bold text-red-600 ">Wear</span>
+        </button>
+      </Link>
       <div>
         <ul
           className={`md:flex md:items-center absolute md:static  w-full md:z-[-1] z-[1] left-0 md:w-auto md:mt-0 mt-8 md:pl-0 pl-9 transition-all duration-500 ease-in bg-gray-100 md:bg-transparent ${
             open ? " opacity-100" : "left-[-1690px]"
           } md:opacity-100`}
         >
-          <Link>
+          <Link to="/">
             <li
               className={`${
                 selected === "HOME" && "border-b border-red-500"
@@ -61,7 +63,7 @@ const Header = () => {
               HOME
             </li>
           </Link>
-          <Link to="./products">
+          <Link to="/products">
             <li
               className={`${
                 selected === "PRODUCTS" && "border-b border-red-500"
@@ -74,17 +76,17 @@ const Header = () => {
               PRODUCTS
             </li>
           </Link>
-          <Link>
+          <Link to="/cart">
             <li
               className={`${
-                selected === "ABOUT" && "border-b border-red-500"
+                selected === "CART" && "border-b border-red-500"
               } md:my-0 my-4 md:ml-5 bg-transparent relative before:content-[''] before:absolute before:block before:md:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-red-500
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-middle
               before:transition before:ease-in-out before:duration-300`}
-              onClick={() => handleClick("ABOUT")}
+              onClick={() => handleClick("CART")}
             >
-              ABOUT
+              CART
             </li>
           </Link>
           <Link>

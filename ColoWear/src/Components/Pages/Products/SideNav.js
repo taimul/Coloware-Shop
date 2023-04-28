@@ -14,8 +14,8 @@ const SideNav = () => {
           Categories
         </h2>
         <ul className="list-none">
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className=" hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 focus:outline-none focus:border-b border-red-400"
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_GENDER",
@@ -25,10 +25,10 @@ const SideNav = () => {
             checked={byGender}
           >
             Men
-          </li>
+          </button>
           <br />
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 "
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_GENDER",
@@ -38,10 +38,10 @@ const SideNav = () => {
             checked={byGender}
           >
             Women
-          </li>
+          </button>
           <br />
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 "
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_TYPE",
@@ -51,10 +51,10 @@ const SideNav = () => {
             checked={byType}
           >
             Trending
-          </li>
+          </button>
           <br />
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 "
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_TYPE",
@@ -64,7 +64,7 @@ const SideNav = () => {
             checked={byType}
           >
             New Arrivals
-          </li>
+          </button>
         </ul>
       </div>
       <div>
@@ -72,8 +72,8 @@ const SideNav = () => {
           More Options
         </h2>
         <ul>
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 "
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_CATEGORY",
@@ -83,10 +83,10 @@ const SideNav = () => {
             checked={byCategory}
           >
             Cloths
-          </li>
+          </button>
           <br />
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 "
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_CATEGORY",
@@ -96,10 +96,10 @@ const SideNav = () => {
             checked={byCategory}
           >
             Watch
-          </li>
+          </button>
           <br />
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400 "
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_CATEGORY",
@@ -109,10 +109,10 @@ const SideNav = () => {
             checked={byCategory}
           >
             Shoes
-          </li>
+          </button>
           <br />
-          <li
-            className="cursor-pointer hover:text-red-400 inline-block "
+          <button
+            className="cursor-pointer hover:text-red-400 inline-block focus:outline-none focus:border-b border-red-400"
             onClick={() =>
               productDispatch({
                 type: "FILTER_BY_CATEGORY",
@@ -122,7 +122,7 @@ const SideNav = () => {
             checked={byCategory}
           >
             Bags
-          </li>
+          </button>
         </ul>
       </div>
       {/* <h2 className="border-b">Categories</h2> */}
