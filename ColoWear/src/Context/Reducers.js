@@ -32,6 +32,12 @@ export const productReducer = (state, action) => {
       return { ...state, byFastDelivery: !state.byFastDelivery };
     case "FILTER_BY_RATING":
       return { ...state, byRating: action.payload };
+    case "FILTER_BY_GENDER":
+      return { ...state, byGender: action.payload, byType: "", byCategory: "" };
+    case "FILTER_BY_TYPE":
+      return { ...state, byType: action.payload, byGender: "", byCategory: "" };
+    case "FILTER_BY_CATEGORY":
+      return { ...state, byCategory: action.payload, byGender: "", byType: "" };
     case "FILTER_BY_SEARCH":
       return { ...state, searchQuery: action.payload };
     case "CLEAR_FILTERS":

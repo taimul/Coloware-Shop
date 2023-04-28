@@ -19,6 +19,24 @@ app.get("/", (req, res) => {
 app.get("/products", (req, res) => {
   res.send(products);
 });
+app.get("/products/:gender", (req, res) => {
+  const gender = req.params.gender;
+
+  const filteredProducts = products.filter((n) => n.gender === gender);
+  res.send(filteredProducts);
+});
+app.get("/products/moreOption/:category", (req, res) => {
+  const category = req.params.category;
+
+  const filteredProducts = products.filter((n) => n.category === category);
+  res.send(filteredProducts);
+});
+app.get("/products/type/:type", (req, res) => {
+  const type = req.params.type;
+
+  const filteredProducts = products.filter((n) => n.type === type);
+  res.send(filteredProducts);
+});
 
 app.listen(port, () => {
   console.log(`COLO WEAR server running on ${port}`);

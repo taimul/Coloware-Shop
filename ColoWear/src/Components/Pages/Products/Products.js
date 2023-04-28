@@ -7,7 +7,16 @@ import Filter from "./Filter";
 const Products = () => {
   const {
     state: { products },
-    productState: { sort, byStock, byFastDelivery, byRating, searchQuery },
+    productState: {
+      sort,
+      byStock,
+      byFastDelivery,
+      byRating,
+      searchQuery,
+      byGender,
+      byType,
+      byCategory,
+    },
   } = CartState();
 
   const transformProducts = () => {
@@ -25,6 +34,19 @@ const Products = () => {
 
     if (byFastDelivery) {
       sortedProducts = sortedProducts.filter((prod) => prod.fastDelivery);
+    }
+    if (byGender) {
+      sortedProducts = sortedProducts.filter(
+        (prod) => prod.gender === byGender
+      );
+    }
+    if (byType) {
+      sortedProducts = sortedProducts.filter((prod) => prod.type === byType);
+    }
+    if (byCategory) {
+      sortedProducts = sortedProducts.filter(
+        (prod) => prod.category === byCategory
+      );
     }
 
     if (byRating) {

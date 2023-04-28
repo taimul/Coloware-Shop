@@ -29,9 +29,12 @@ const Context = ({ children }) => {
     byStock: false,
     byFastDelivery: false,
     byRating: 0,
+    byGender: "",
+    byCategory: "",
+    byType: "",
     searchQuery: "",
   });
-  //   console.log(state.length);
+  //   console.log(productState);
   return (
     <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
       {children}
