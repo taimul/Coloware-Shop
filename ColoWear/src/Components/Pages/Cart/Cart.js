@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CartState } from "../../../Context/Context";
-import { Link, useLoaderData } from "react-router-dom";
-import { BsPlus, BsDash } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
 
 const Cart = () => {
@@ -123,7 +122,9 @@ const Cart = () => {
               Please Go back to{" "}
               <span className="">
                 <Link to="/products">
-                  <button className="btn-primary">Product Page !</button>
+                  <button className=" rounded-md p-3 bg-red-400 text-white hover:bg-red-500 mt-10 mb-10 md:w-48 w-32 text-xs md:text-base">
+                    PRODUCT PAGE !
+                  </button>
                 </Link>
               </span>
             </p>

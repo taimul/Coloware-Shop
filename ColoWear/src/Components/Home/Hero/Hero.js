@@ -52,9 +52,9 @@ const Hero = () => {
                   New Amazing <br />
                   Staff is Here
                 </h1>
-                <Link to="/">
-                  <button className=" rounded-full p-3 bg-red-400 text-white hover:bg-red-500 mt-10 mb-10 md:w-48 w-32 text-xs md:text-base">
-                    SHOP NOW
+                <Link to="/products">
+                  <button className=" btn-default sm:mt-10 mt-4 mb-10 ">
+                    Shop Now
                   </button>
                 </Link>
               </div>

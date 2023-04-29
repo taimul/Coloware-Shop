@@ -89,7 +89,7 @@ const Header = () => {
               CART
             </li>
           </Link>
-          <Link>
+          <Link to="/contact">
             <li
               className={`${
                 selected === "CONTACT" && "border-b border-red-500"

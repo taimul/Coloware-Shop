@@ -2,6 +2,7 @@ import React from "react";
 import { CartState } from "../../../Context/Context";
 import Rating from "./Rating";
 import HoverEffect from "./HoverEffect";
+import { Link } from "react-router-dom";
 
 const SingleProduct = ({ prod }) => {
   const {
@@ -12,7 +13,9 @@ const SingleProduct = ({ prod }) => {
   return (
     <div>
       <div className="card">
-        <HoverEffect src1={prod.image1} src2={prod.image2} />
+        <Link to={`/products/${prod.id}`}>
+          <HoverEffect src1={prod.image1} src2={prod.image2} />
+        </Link>
         <div className="p-5 flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <span className="badge">Total Stock: {prod.inStock}</span>

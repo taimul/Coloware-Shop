@@ -1,8 +1,6 @@
 // Reducers.js
 export const cartReducer = (state, action) => {
   switch (action.type) {
-    case "SET_PRODUCTS":
-      return { ...state, products: action.payload }; // Update products state with payload value
     case "ADD_TO_CART":
       return { ...state, cart: [...state.cart, { ...action.payload, qty: 1 }] };
     case "REMOVE_FROM_CART":
@@ -17,6 +15,14 @@ export const cartReducer = (state, action) => {
           c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
         ),
       };
+    case "SET_PRODUCTS":
+      return { ...state, products: action.payload }; // Update products state with payload value
+
+    //get product details by id
+    case "GET_PRODUCT_BY_ID":
+      const product = action.payload;
+      return { ...state, productDetail: product };
+
     default:
       return state;
   }
@@ -41,7 +47,11 @@ export const productReducer = (state, action) => {
     case "FILTER_BY_SEARCH":
       return { ...state, searchQuery: action.payload };
     case "CLEAR_FILTERS":
-      return { byStock: false, byFastDelivery: false, byRating: 0 };
+      return {
+        byStock: false,
+        byFastDelivery: false,
+        byRating: 0,
+      };
     default:
       return state;
   }

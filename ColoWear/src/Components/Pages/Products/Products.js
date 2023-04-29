@@ -73,7 +73,7 @@ const Products = () => {
 
         <div className="w-full">
           <Filter />
-          <div className="grid grid-cols-2 md:grid-cols-3 mt-6 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 mt-6 gap-4">
             {transformProducts().map((prod) => (
               <SingleProduct prod={prod} key={prod.id} />
             ))}

@@ -9,7 +9,7 @@
     "category": "clothing",
     "fastDelivery": false,
     "gender": "male",
-    "inStock": 0,
+    "inStock": 2,
     "type": "trending",
     "rating": 4
   },
@@ -151,7 +151,7 @@
     "fastDelivery": true,
     "inStock": 2,
     "type": "trending",
-    "rating": 1
+    "rating": 4
   },
   {
     "id": "4be34be5-1cb0-40d3-bdc2-dfa7473a8323",
