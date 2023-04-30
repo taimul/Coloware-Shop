@@ -18,13 +18,15 @@ const SingleProduct = ({ prod }) => {
         <Link to={`/products/${prod.id}`}>
           <HoverEffect src1={prod.image1} src2={prod.image2} />
         </Link>
-        <div className="p-5 flex flex-col gap-3">
+        <div className="p-2 flex flex-col gap-y-2 sm:gap-y-3 justify-center">
           <div className="flex items-center gap-2">
-            <span className="badge">Total Stock: {prod.inStock}</span>
+            <span className="badge hidden sm:block">
+              Total Stock: {prod.inStock}
+            </span>
             <span>
               {" "}
               {prod.fastDelivery ? (
-                <div className="bg-green-400 px-3 py-1 rounded-full text-xs text-white">
+                <div className="bg-green-400 sm:px-3 px-1 py-1 rounded-full text-xs text-white">
                   Fast Delivery
                 </div>
               ) : (
