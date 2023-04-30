@@ -3,6 +3,7 @@ import { CartState } from "../../../Context/Context";
 import Rating from "./Rating";
 import HoverEffect from "./HoverEffect";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const SingleProduct = ({ prod }) => {
   const {
@@ -10,6 +11,9 @@ const SingleProduct = ({ prod }) => {
     dispatch,
   } = CartState();
   //   console.log(prod.inStock);
+
+  const notify = () => toast.success("Added To The Cart");
+  const notify2 = () => toast.error("Removed From Cart");
   return (
     <div>
       <div className="card">
@@ -48,6 +52,7 @@ const SingleProduct = ({ prod }) => {
                     type: "REMOVE_FROM_CART",
                     payload: prod,
                   });
+                  notify2();
                 }}
                 className="btn-warning"
               >
@@ -60,6 +65,7 @@ const SingleProduct = ({ prod }) => {
                     type: "ADD_TO_CART",
                     payload: prod,
                   });
+                  notify();
                 }}
                 disabled={!prod.inStock}
                 className={`btn-primary ${!prod.inStock && "opacity-50"}`}

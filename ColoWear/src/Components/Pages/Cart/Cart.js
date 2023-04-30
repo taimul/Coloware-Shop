@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CartState } from "../../../Context/Context";
 import { Link } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
+import { toast } from "react-hot-toast";
 
 const Cart = () => {
   const {
@@ -16,6 +17,11 @@ const Cart = () => {
       cart.reduce((acc, curr) => 20 + acc + Number(curr.price) * curr.qty, 0)
     );
   }, [cart]);
+  const notify = () =>
+    toast.success("Booking Successful", {
+      duration: 8000,
+      style: { color: "red" },
+    });
   return (
     <div className="bg-gray-100">
       <div className=" p-10 text-black flex justify-center items-center ">
@@ -88,12 +94,13 @@ const Cart = () => {
                       </div>
 
                       <AiFillDelete
-                        onClick={() =>
+                        onClick={() => {
+                          toast.error("One Item Removed From Cart");
                           dispatch({
                             type: "REMOVE_FROM_CART",
                             payload: prod,
-                          })
-                        }
+                          });
+                        }}
                         className="text-xl cursor-pointer"
                       />
                     </div>
@@ -110,7 +117,9 @@ const Cart = () => {
               <h1>{total}$</h1>
             </div>
             <div className="flex justify-end mt-3">
-              <button className="btn btn-warning ">Book</button>
+              <button className="btn btn-warning " onClick={notify}>
+                Book
+              </button>
             </div>
           </div>
         </>

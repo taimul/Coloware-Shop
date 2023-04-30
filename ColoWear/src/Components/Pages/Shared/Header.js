@@ -4,6 +4,7 @@ import { GrFormClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { CartState } from "../../../Context/Context";
 import { AiFillDelete } from "react-icons/ai";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -32,6 +33,8 @@ const Header = () => {
     state: { cart },
     dispatch,
   } = CartState();
+
+  // const notify = () => toast.error("One Items Removed");
   return (
     <header
       className={`bg-gray-100 md:flex md:justify-between p-8 w-full z-40 sticky top-0 ${
@@ -134,12 +137,13 @@ const Header = () => {
                             <p>{prod.price}$</p>
                           </div>
                           <AiFillDelete
-                            onClick={() =>
+                            onClick={() => {
+                              toast.error("One Items Removed");
                               dispatch({
                                 type: "REMOVE_FROM_CART",
                                 payload: prod,
-                              })
-                            }
+                              });
+                            }}
                             className="absolute right-4 cursor-pointer"
                           />
                         </span>

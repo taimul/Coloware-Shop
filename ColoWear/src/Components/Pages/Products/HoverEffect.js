@@ -6,7 +6,7 @@ const HoverEffect = ({ src1, src2, alt }) => {
     <img
       src={hovering ? src2 : src1}
       alt={alt}
-      className="transition duration-1000 ease-in-out w-full h-48 object-cover p-2 rounded-xl cursor-pointer"
+      className="transition duration-1000 ease-in-out w-full h-48 object-cover p-2 rounded-xl"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     />
