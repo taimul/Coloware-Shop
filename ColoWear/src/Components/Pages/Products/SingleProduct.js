@@ -12,8 +12,6 @@ const SingleProduct = ({ prod }) => {
   } = CartState();
   //   console.log(prod.inStock);
 
-  const notify = () => toast.success("Added To The Cart");
-  const notify2 = () => toast.error("Removed From Cart");
   return (
     <div>
       <div className="card">
@@ -48,11 +46,14 @@ const SingleProduct = ({ prod }) => {
             {cart.some((p) => p.id === prod.id) ? (
               <button
                 onClick={() => {
+                  toast.error("Item Removed", {
+                    position: "bottom-center",
+                    duration: 4000,
+                  });
                   dispatch({
                     type: "REMOVE_FROM_CART",
                     payload: prod,
                   });
-                  notify2();
                 }}
                 className="btn-warning"
               >
@@ -61,11 +62,14 @@ const SingleProduct = ({ prod }) => {
             ) : (
               <button
                 onClick={() => {
+                  toast.success("Item Added", {
+                    position: "bottom-center",
+                    duration: 4000,
+                  });
                   dispatch({
                     type: "ADD_TO_CART",
                     payload: prod,
                   });
-                  notify();
                 }}
                 disabled={!prod.inStock}
                 className={`btn-primary ${!prod.inStock && "opacity-50"}`}

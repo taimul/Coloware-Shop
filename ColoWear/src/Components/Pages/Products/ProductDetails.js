@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CartState } from "../../../Context/Context";
 import Rating from "./Rating";
+import { toast } from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -34,7 +35,7 @@ const ProductDetails = () => {
               className="sm:w-96 w-full h-96 rounded-md"
             />
           </div>
-          <div className="w-[500px]">
+          <div className="md:w-[500px]">
             <div className="p-5 flex flex-col gap-3">
               <h2 className="text-2xl font-bold"> {productDetail.name}</h2>
 
@@ -79,6 +80,10 @@ const ProductDetails = () => {
                 {cart.some((p) => p.id === productDetail.id) ? (
                   <button
                     onClick={() => {
+                      toast.error("Item Removed", {
+                        position: "bottom-center",
+                        duration: 4000,
+                      });
                       dispatch({
                         type: "REMOVE_FROM_CART",
                         payload: productDetail,
@@ -91,6 +96,10 @@ const ProductDetails = () => {
                 ) : (
                   <button
                     onClick={() => {
+                      toast.success("Item Added", {
+                        position: "bottom-center",
+                        duration: 4000,
+                      });
                       dispatch({
                         type: "ADD_TO_CART",
                         payload: productDetail,

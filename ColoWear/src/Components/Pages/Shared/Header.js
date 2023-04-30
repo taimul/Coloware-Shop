@@ -208,7 +208,10 @@ const Header = () => {
                       </div>
                       <AiFillDelete
                         onClick={() => {
-                          toast.error("One Items Removed");
+                          toast.error("Item Removed", {
+                            position: "bottom-center",
+                            duration: 4000,
+                          });
                           dispatch({
                             type: "REMOVE_FROM_CART",
                             payload: prod,

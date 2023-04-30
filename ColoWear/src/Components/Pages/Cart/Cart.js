@@ -19,7 +19,7 @@ const Cart = () => {
   }, [cart]);
   const notify = () =>
     toast.success("Booking Successful", {
-      duration: 8000,
+      duration: 6000,
       style: { color: "red" },
     });
   return (
@@ -97,7 +97,10 @@ const Cart = () => {
 
                       <AiFillDelete
                         onClick={() => {
-                          toast.error("One Item Removed From Cart");
+                          toast.error("Item Removed", {
+                            position: "bottom-center",
+                            duration: 4000,
+                          });
                           dispatch({
                             type: "REMOVE_FROM_CART",
                             payload: prod,
