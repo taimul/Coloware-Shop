@@ -13,7 +13,9 @@ const Context = ({ children }) => {
 
   const fetchProductDetail = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/products/${id}`);
+      const res = await fetch(
+        `https://colowear-server.vercel.app/products/${id}`
+      );
       const data = await res.json();
       // console.log(data);
       dispatch({ type: "GET_PRODUCT_BY_ID", payload: data });
@@ -23,7 +25,7 @@ const Context = ({ children }) => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://colowear-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

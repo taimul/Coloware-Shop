@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Trending = () => {
   const [trendingProduct, setTrendingProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products/type/trending")
+    fetch("https://colowear-server.vercel.app/products/type/trending")
       .then((res) => res.json())
       .then((data) => setTrendingProduct(data));
   }, []);

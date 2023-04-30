@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const NewArrivals = () => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products/type/newArrivals")
+    fetch("https://colowear-server.vercel.app/products/type/newArrivals")
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
