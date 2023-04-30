@@ -31,7 +31,7 @@ const NewArrivals = () => {
       </div>
       {product.length >= 4 && (
         <>
-          <div className="flex container mx-auto gap-4 " data-aos="fade-up">
+          <div className="flex container mx-auto gap-4 p-2" data-aos="fade-up">
             <div className="w-1/4 overflow-hidden rounded-md">
               <figure>
                 <img

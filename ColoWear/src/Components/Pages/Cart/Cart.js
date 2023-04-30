@@ -30,7 +30,7 @@ const Cart = () => {
             className="text-4xl mb-5 bg-transparent relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
             before:bottom-0 before:left-0 before:bg-red-500
             before:hover:scale-x-100 before:scale-x-0 before:origin-top-middle
-            before:transition before:ease-in-out before:duration-300 "
+            before:transition before:ease-in-out before:duration-300 text-orange-400 "
           >
             Booking Page
           </h1>
@@ -59,12 +59,14 @@ const Cart = () => {
                 <div className="container mx-auto lg:w-[55rem] border-b bg-white p-5">
                   <div className="lg:flex w-full ">
                     <div className="w-full">
-                      <div className="avatar flex items-center gap-4">
-                        <div className="w-16 h-16 rounded flex">
-                          <img src={prod.image1} alt={prod.name} />
+                      <Link to={`/products/${prod.id}`}>
+                        <div className="avatar flex items-center gap-4">
+                          <div className="w-16 h-16 rounded flex">
+                            <img src={prod.image2} alt={prod.name} />
+                          </div>
+                          <p className="hover:text-red-500">{prod.name}</p>
                         </div>
-                        <p>{prod.name}</p>
-                      </div>
+                      </Link>
                     </div>
                     <div className="flex w-full justify-between items-center">
                       <h1>{prod.gender}</h1>
@@ -126,8 +128,8 @@ const Cart = () => {
       ) : (
         <>
           <div className="bg-white p-5 container mx-auto lg:w-[55rem] text-center border">
-            <p className="">CART IS EMPTY</p>
-            <p>
+            <p className="font-bold text-red-400">OOPS!! CART IS EMPTY</p>
+            <p className="text-green-600">
               Please Go back to{" "}
               <span className="">
                 <Link to="/products">

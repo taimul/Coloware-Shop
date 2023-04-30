@@ -55,7 +55,7 @@ const blogs = [
 
 const Blog = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white p-2">
       <div className=" p-20 text-black flex justify-center items-center">
         <div className="">
           <h1
@@ -99,9 +99,9 @@ const Blog = () => {
         >
           {blogs.map(({ id, image, name, description, date }) => (
             <SwiperSlide>
-              <div className="hero border" key={id}>
+              <div className="hero border rounded-md" key={id}>
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                  <img src={image} className="h-[500px] " alt="" />
+                  <img src={image} className="h-[500px] rounded-md" alt="" />
                   <div>
                     <h1 className="text-sm font-bold">
                       <span className="hover:text-red-500 ">#{name},</span>{" "}

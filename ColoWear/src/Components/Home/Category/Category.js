@@ -14,9 +14,9 @@ const Category = () => {
     });
   }, []);
   return (
-    <div className="relative container mx-auto md:flex gap-5 mt-5 mb-10">
+    <div className="relative container mx-auto md:flex gap-5 mt-5 mb-10 p-3">
       <div
-        className="bg-cover bg-center lg:h-[700px] h-72 w-full flex flex-col justify-center items-center text-white gap-5 lg:rounded-2xl mb-2 md:mb-0 "
+        className="bg-cover bg-center lg:h-[700px] h-72 w-full flex flex-col justify-center items-center text-white gap-5 lg:rounded-2xl mb-2 md:mb-0 rounded-md "
         style={{ backgroundImage: `url(${women})` }}
         data-aos="fade-up" // Add data-aos attribute and specify animation type
       >
@@ -37,7 +37,7 @@ const Category = () => {
         </Link>
       </div>
       <div
-        className="bg-cover bg-center lg:h-[700px] h-72 w-full flex flex-col justify-center items-center text-white gap-5 lg:rounded-2xl"
+        className="bg-cover bg-center lg:h-[700px] h-72 w-full flex flex-col justify-center items-center text-white gap-5 lg:rounded-2xl rounded-md"
         style={{ backgroundImage: `url(${men})` }}
         data-aos="fade-up" // Add data-aos attribute and specify animation type
       >

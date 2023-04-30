@@ -54,11 +54,11 @@ const ProductDetails = () => {
                 </span>
                 <span className="">
                   {productDetail.type === "trending" ? (
-                    <div className="bg-red-400 px-3 py-1 rounded-full text-xs text-white">
+                    <div className="bg-red-500 px-3 py-1 rounded-full text-xs text-white">
                       <p>Trending</p>
                     </div>
                   ) : (
-                    <div className="bg-purple-400 px-3 py-1 rounded-full text-xs text-white">
+                    <div className="bg-purple-500 px-3 py-1 rounded-full text-xs text-white">
                       <p>New Arrives</p>
                     </div>
                   )}

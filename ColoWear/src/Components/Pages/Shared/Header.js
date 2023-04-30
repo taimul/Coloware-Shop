@@ -111,7 +111,7 @@ const Header = () => {
             </li>
             <p>(10)</p>
           </Link> */}
-          <div className="relative flex items-center">
+          {/* <div className="relative flex items-center">
             <div className="">
               {isOpen && (
                 <ul
@@ -131,9 +131,11 @@ const Header = () => {
                             alt=""
                           />
                           <div className="ml-2">
-                            <p className="text-xs overflow-hidden overflow-ellipsis whitespace-nowrap ">
-                              {prod.name}
-                            </p>
+                            <Link to={`/products/${prod.id}`}>
+                              <p className="text-xs overflow-hidden overflow-ellipsis whitespace-nowrap hover:text-red-500">
+                                {prod.name}
+                              </p>
+                            </Link>
                             <p>{prod.price}$</p>
                           </div>
                           <AiFillDelete
@@ -160,7 +162,7 @@ const Header = () => {
                 </ul>
               )}
             </div>
-            {/* Dropdown trigger */}
+
             <button
               onClick={handleToggle}
               className="md:my-0 my-4 md:ml-5 text-2xl"
@@ -168,7 +170,7 @@ const Header = () => {
               <BiCart className="text-xl" />
             </button>
             <p>({cart.length})</p>
-          </div>
+          </div> */}
         </ul>
       </div>
       <div
@@ -176,6 +178,66 @@ const Header = () => {
         className="md:hidden absolute right-8 top-10 text-2xl cursor-pointer"
       >
         {open ? <GrFormClose /> : <BiMenu />}
+      </div>
+      <div className="absolute top-6 right-16 md:relative md:top-0  flex items-center">
+        <div className="">
+          {isOpen && (
+            <ul
+              ref={dropdownRef}
+              className="absolute right-0 mt-4 py-2 w-80 bg-gray-100 rounded-md shadow-md p-3 border"
+            >
+              {cart.length > 0 ? (
+                <>
+                  {cart.map((prod) => (
+                    <span
+                      className="flex items-center border-b border-gray-300 p-2"
+                      key={prod.id}
+                    >
+                      <img
+                        className="rounded-full h-10 w-10"
+                        src={prod.image1}
+                        alt=""
+                      />
+                      <div className="ml-2">
+                        <Link to={`/products/${prod.id}`}>
+                          <p className="text-xs overflow-hidden overflow-ellipsis whitespace-nowrap hover:text-red-500">
+                            {prod.name}
+                          </p>
+                        </Link>
+                        <p>{prod.price}$</p>
+                      </div>
+                      <AiFillDelete
+                        onClick={() => {
+                          toast.error("One Items Removed");
+                          dispatch({
+                            type: "REMOVE_FROM_CART",
+                            payload: prod,
+                          });
+                        }}
+                        className="absolute right-4 cursor-pointer"
+                      />
+                    </span>
+                  ))}
+                  <Link to="/cart">
+                    <button className="bg-blue-500 p-2 rounded-md w-full text-white mt-3">
+                      Proceed To Cart
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <span>Cart Is Empty!</span>
+              )}
+            </ul>
+          )}
+        </div>
+
+        <button
+          onClick={handleToggle}
+          className="md:my-0 my-4 md:ml-5 text-2xl"
+        >
+          <BiCart className="text-2xl" />
+        </button>
+        <p>({cart.length})</p>
       </div>
     </header>
   );
